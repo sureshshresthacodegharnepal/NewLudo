@@ -1,0 +1,6 @@
+{
+  "name": "Royal Ludo Offline",
+  "description": "Complete offline multiplayer and AI Ludo board game featuring traditional 52-cell mechanics, Shield and Double Dice skills, 3 AI difficulty tiers, procedural audio, and Android Jetpack Compose source architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

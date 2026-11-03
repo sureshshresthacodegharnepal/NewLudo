@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #d9b886;
+    color: #2c1a0e;
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Natural Light Maple / Oak Tabletop Background with Subtle Horizontal Grain & Resilient Fallback */
+.wood-tabletop {
+  background-color: #dfc090;
+  background-image:
+    radial-gradient(circle at 50% 45%, rgba(255, 249, 235, 0.22) 0%, rgba(110, 68, 27, 0.24) 100%),
+    url('/src/assets/images/maple_wood_tabletop_1793700128504.jpg'),
+    repeating-linear-gradient(
+      0deg,
+      rgba(160, 108, 55, 0.05) 0px,
+      rgba(160, 108, 55, 0.05) 2px,
+      rgba(255, 243, 219, 0.06) 2px,
+      rgba(255, 243, 219, 0.06) 7px
+    ),
+    linear-gradient(180deg, #e7cb9f 0%, #dab682 52%, #cfa66d 100%);
+  background-size: cover, cover, 100% 14px, 100% 100%;
+  background-position: center;
+}
+
+/* Neo Classic Warm Cream / Carved Walnut Panel */
+.wood-card {
+  background: linear-gradient(180deg, #fdf8ec 0%, #f5ebd4 100%);
+  border: 2px solid #6b4423;
+  box-shadow:
+    0 8px 20px rgba(52, 29, 10, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.wood-banner {
+  background: linear-gradient(180deg, #5c381c 0%, #3e2410 100%);
+  border: 2px solid #caa052;
+  color: #fdf8ec;
+  box-shadow:
+    0 6px 16px rgba(42, 22, 7, 0.32),
+    inset 0 1px 0 rgba(255, 232, 175, 0.35);
+}
+
+/* Neo Classic Golden Circular 3D Button */
+.gold-circle-btn {
+  background: radial-gradient(circle at 32% 24%, #fff3b0 0%, #f1c24b 42%, #c98c1c 85%, #9c670c 100%);
+  border: 2.5px solid #5c3906;
+  color: #382005;
+  box-shadow:
+    0 5px 10px rgba(45, 25, 6, 0.38),
+    0 2px 0 #784c0a,
+    inset 0 2px 2px rgba(255, 252, 225, 0.85),
+    inset 0 -2px 3px rgba(112, 70, 8, 0.55);
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 120ms ease, filter 120ms ease;
+}
+
+.gold-circle-btn:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.gold-circle-btn:active:not(:disabled) {
+  transform: translateY(2px) scale(0.96);
+  box-shadow:
+    0 2px 4px rgba(45, 25, 6, 0.35),
+    inset 0 1px 2px rgba(255, 252, 225, 0.65);
+}
+
+.gold-circle-btn:disabled {
+  filter: saturate(0.45) brightness(0.92);
+  opacity: 0.68;
+  cursor: not-allowed;
+}
+
+/* Neo Classic Golden Primary Pill/Action CTA */
+.gold-cta-btn {
+  background: linear-gradient(180deg, #fae084 0%, #e5ad2b 52%, #b97f10 100%);
+  border: 2px solid #5c3906;
+  color: #2f1a04;
+  box-shadow:
+    0 5px 12px rgba(45, 25, 6, 0.32),
+    0 2px 0 #6e4508,
+    inset 0 1.5px 1px rgba(255, 251, 224, 0.85);
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), filter 120ms ease;
+}
+
+.gold-cta-btn:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.gold-cta-btn:active:not(:disabled) {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* True 3D Physical Dice Cube Rendering */
+.dice-scene-3d {
+  perspective: 950px;
+  perspective-origin: 50% 50%;
+}
+
+.dice-cube-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.dice-face-3d {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 20%;
+  background: radial-gradient(circle at 30% 28%, #fffef9 0%, #f7eed7 68%, #e4d3b0 100%);
+  border: 2px solid #b59868;
+  box-shadow: inset 0 0 8px rgba(120, 82, 35, 0.24);
+}
+
+.dice-face-3d-gold {
+  background: radial-gradient(circle at 30% 28%, #fff8d6 0%, #f7d674 65%, #d69c26 100%);
+  border: 2px solid #8c5b08;
+  box-shadow: inset 0 0 8px rgba(92, 56, 6, 0.32);
+}
+
+@keyframes boardShake {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(-4px, 3px, 0); }
+  40% { transform: translate3d(4px, -3px, 0); }
+  60% { transform: translate3d(-3px, -2px, 0); }
+  80% { transform: translate3d(3px, 2px, 0); }
+}
+
+.animate-board-shake {
+  animation: boardShake 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tokenPulseRing {
+  0%, 100% { transform: scale(1); opacity: 0.92; }
+  50% { transform: scale(1.1); opacity: 0.55; }
+}
+
+.animate-token-ring {
+  animation: tokenPulseRing 1.25s ease-in-out infinite;
+}
